@@ -1,0 +1,18 @@
+﻿@model Lab1.Models.Folder
+
+<div class="folder">
+    <p style="color: white;">@Model.Name @Model.Date Elements: @Model.NumberOfSubelements</p>
+
+    @foreach (Lab1.Models.Element element in Model.Subelements)
+    {
+        if (element is Lab1.Models.File)
+        {
+            @Html.Partial("_File", element);
+        }
+        else if (element is Lab1.Models.Folder)
+        {
+            @Html.Partial("_Folder", element);
+        }
+    }
+
+</div>
